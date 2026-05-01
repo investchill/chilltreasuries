@@ -1,0 +1,86 @@
+# ============================================================
+# ChillTreasuries — .gitignore
+# ============================================================
+# Topologie de branches (héritée de ChillBTC et ChillFOLIO) :
+#   main   = atelier privé complet (TOUT, y compris les fichiers ci-dessous)
+#   public = sous-ensemble safe servi sur GitHub Pages
+#
+# Ce .gitignore est lu par la branche `public` : il définit ce qui est
+# considéré comme PRIVÉ et donc exclu de la publication.
+#
+# Synchronisation unidirectionnelle : public → main uniquement.
+# Jamais main → public sans validation explicite ligne par ligne.
+# Cf. règle "STRICT GUARDRAIL — NO LEAK" en mémoire projet ChillFOLIO.
+# ============================================================
+
+# --- Atelier méthode (chemin critique privé) ---------------
+01-charte.md
+02-etf-cible.md
+03-protocole-backtest.md
+04-rules-specs.md
+05-backtest-results.md
+06-strategie-finale.md
+07-process-mensuel.md
+08-journal.md
+CLAUDE.md
+ROADMAP.md
+
+refs/
+
+# --- Données financières et configuration personnelles -----
+perso-legacy/
+09-transition-*.md
+**/transition_journal.csv
+**/perso_*.csv
+**/perso_*.md
+
+# --- Transcripts et sessions agent (privés intégralement) --
+ai_docs/*
+!ai_docs/.gitkeep
+
+# --- Configuration locale agent ----------------------------
+.claude/settings.local.json
+
+# --- Secrets et credentials --------------------------------
+.env
+.env.*
+*.key
+*.pem
+*.p12
+secrets.*
+credentials.*
+api_keys.*
+.envrc
+
+# --- Python / engine ---------------------------------------
+**/__pycache__/
+**/*.py[oc]
+**/.venv/
+**/.pytest_cache/
+**/.ruff_cache/
+engine/dist/
+engine/build/
+engine/*.egg-info/
+
+# --- Engine — sorties et caches ---------------------------
+engine/data/cache/
+engine/output/
+
+# --- Logs locaux -------------------------------------------
+*.log
+logs/
+
+# --- Métadonnées système et IDE ---------------------------
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Jekyll local preview (GitHub Pages builds server-side) ---
+docs/_site/
+docs/.jekyll-cache/
+docs/vendor/
+docs/Gemfile
+docs/Gemfile.lock
